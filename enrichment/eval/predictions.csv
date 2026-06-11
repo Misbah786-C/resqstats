@@ -1,0 +1,101 @@
+incident_id,call_text,incident_type,severity,town,pred_type,pred_severity
+INC-20260601-0155,"Unknown emergency in Nazimabad, person lying on street",other,serious,Nazimabad,other,serious
+INC-20260601-0216,"Bus ne takkar maari hai Malir ke paas, jaldi ambulance bhejo",road_accident,moderate,Malir,road_accident,serious
+INC-20260601-0016,"Firing hui hai Korangi mein, aik banda zakhmi hai",violence,critical,Korangi,violence,serious
+INC-20260601-0174,"Car accident near Surjani, two people injured, one unconscious",road_accident,moderate,Surjani,road_accident,serious
+INC-20260601-0159,"Chest pain emergency Gulshan-e-Iqbal mein, buzurg aadmi hai",cardiac,moderate,Gulshan-e-Iqbal,cardiac,serious
+INC-20260601-0126,"Garmi se banda behosh ho gaya hai Gulshan-e-Iqbal mein, bahar kaam kar raha tha",heat_stroke,serious,Gulshan-e-Iqbal,heat_stroke,serious
+INC-20260601-0098,"Koi behosh para hai Orangi ke paas, madad chahiye",other,moderate,Orangi,other,serious
+INC-20260601-0026,"Heart patient collapsed at home in Saddar, not responding",cardiac,moderate,Saddar,cardiac,critical
+INC-20260601-0061,"Car accident near Gulistan-e-Johar, two people injured, one unconscious",road_accident,serious,Gulistan-e-Johar,road_accident,serious
+INC-20260601-0069,"Saans ki takleef hai bachay ko Korangi mein, bohat tez",respiratory,critical,Korangi,respiratory,serious
+INC-20260601-0127,"Bus ne takkar maari hai North Karachi ke paas, jaldi ambulance bhejo",road_accident,moderate,North Karachi,road_accident,serious
+INC-20260601-0164,"Car accident near North Karachi, two people injured, one unconscious",road_accident,moderate,North Karachi,road_accident,serious
+INC-20260601-0143,"Garmi se banda behosh ho gaya hai Orangi mein, bahar kaam kar raha tha",heat_stroke,serious,Orangi,heat_stroke,serious
+INC-20260601-0116,Construction worker fell from scaffolding in New Karachi,fall,serious,New Karachi,fall,serious
+INC-20260601-0046,"Bus ne takkar maari hai Gulshan-e-Iqbal ke paas, jaldi ambulance bhejo",road_accident,serious,Gulshan-e-Iqbal,road_accident,serious
+INC-20260601-0010,"Meri biwi ko dard shuru ho gaye hain, hospital le jana hai, Orangi",maternity,serious,Orangi,maternity,serious
+INC-20260601-0101,"Heart patient collapsed at home in Gulistan-e-Johar, not responding",cardiac,critical,Gulistan-e-Johar,cardiac,critical
+INC-20260601-0097,"Bus ne takkar maari hai Malir ke paas, jaldi ambulance bhejo",road_accident,critical,Malir,road_accident,serious
+INC-20260601-0019,"Bus ne takkar maari hai Lyari ke paas, jaldi ambulance bhejo",road_accident,serious,Lyari,road_accident,serious
+INC-20260601-0177,Construction worker fell from scaffolding in SITE,fall,serious,SITE,fall,serious
+INC-20260601-0083,"Garmi se banda behosh ho gaya hai Saddar mein, bahar kaam kar raha tha",heat_stroke,serious,Saddar,heat_stroke,serious
+INC-20260601-0031,"Unknown emergency in Shah Faisal, person lying on street",other,minor,Shah Faisal,other,serious
+INC-20260601-0191,"Tabiyat bohat kharab hai, samajh nahi aa raha kya hua, Landhi",other,moderate,Landhi,other,serious
+INC-20260601-0067,"Car accident near North Nazimabad, two people injured, one unconscious",road_accident,serious,North Nazimabad,road_accident,serious
+INC-20260601-0112,"Heart patient collapsed at home in North Karachi, not responding",cardiac,moderate,North Karachi,cardiac,critical
+INC-20260601-0056,"Chest pain emergency Garden mein, buzurg aadmi hai",cardiac,serious,Garden,cardiac,serious
+INC-20260601-0068,"Larai mein chaqu lag gaya hai kisi ko, Orangi",violence,moderate,Orangi,violence,serious
+INC-20260601-0171,"Buzurg seerhiyon se gir gaye hain Korangi mein, utth nahi rahe",fall,minor,Korangi,fall,serious
+INC-20260601-0119,"Car accident near North Karachi, two people injured, one unconscious",road_accident,serious,North Karachi,road_accident,serious
+INC-20260601-0070,"Garmi se banda behosh ho gaya hai New Karachi mein, bahar kaam kar raha tha",heat_stroke,moderate,New Karachi,heat_stroke,serious
+INC-20260601-0094,"Car accident near DHA, two people injured, one unconscious",road_accident,serious,DHA,road_accident,serious
+INC-20260601-0017,"Tabiyat bohat kharab hai, samajh nahi aa raha kya hua, Gulshan-e-Iqbal",other,serious,Gulshan-e-Iqbal,other,serious
+INC-20260601-0110,Construction worker fell from scaffolding in New Karachi,fall,moderate,New Karachi,fall,serious
+INC-20260601-0156,"Heat stroke case in Gulistan-e-Johar, labourer collapsed on road",heat_stroke,serious,Gulistan-e-Johar,heat_stroke,serious
+INC-20260601-0113,"Old woman cannot breathe properly in Landhi, lips turning blue",respiratory,serious,Landhi,respiratory,critical
+INC-20260601-0144,"Chest pain emergency Liaquatabad mein, buzurg aadmi hai",cardiac,serious,Liaquatabad,cardiac,serious
+INC-20260601-0198,"Unknown emergency in Liaquatabad, person lying on street",other,moderate,Liaquatabad,other,serious
+INC-20260601-0212,"Meri biwi ko dard shuru ho gaye hain, hospital le jana hai, Korangi",maternity,serious,Korangi,maternity,serious
+INC-20260601-0080,"Koi behosh para hai Saddar ke paas, madad chahiye",other,moderate,Saddar,other,serious
+INC-20260601-0140,Dhoop mein behosh aurat mili hai Gulistan-e-Johar ke paas,heat_stroke,serious,Gulistan-e-Johar,heat_stroke,serious
+INC-20260601-0141,"Koi behosh para hai SITE ke paas, madad chahiye",other,minor,SITE,other,serious
+INC-20260601-0120,"Fight injury in Baldia, person bleeding from head",violence,serious,Baldia,violence,serious
+INC-20260601-0220,"Chest pain emergency Saddar mein, buzurg aadmi hai",cardiac,serious,Saddar,cardiac,serious
+INC-20260601-0085,"Unknown emergency in Saddar, person lying on street",other,moderate,Saddar,other,serious
+INC-20260601-0125,"Tabiyat bohat kharab hai, samajh nahi aa raha kya hua, Gulshan-e-Iqbal",other,moderate,Gulshan-e-Iqbal,other,serious
+INC-20260601-0074,"Meri biwi ko dard shuru ho gaye hain, hospital le jana hai, Orangi",maternity,moderate,Orangi,maternity,serious
+INC-20260601-0151,"Heart patient collapsed at home in Nazimabad, not responding",cardiac,critical,Nazimabad,cardiac,critical
+INC-20260601-0096,"Tabiyat bohat kharab hai, samajh nahi aa raha kya hua, Shah Faisal",other,moderate,Shah Faisal,other,serious
+INC-20260601-0118,"Heart patient collapsed at home in Korangi, not responding",cardiac,serious,Korangi,cardiac,critical
+INC-20260601-0076,Construction worker fell from scaffolding in DHA,fall,minor,DHA,fall,serious
+INC-20260601-0102,"Asthma attack ho raha hai, inhaler kaam nahi kar raha, Korangi",respiratory,serious,Korangi,respiratory,serious
+INC-20260601-0147,"Koi behosh para hai Saddar ke paas, madad chahiye",other,moderate,Saddar,other,serious
+INC-20260601-0142,"Pregnant lady in labour in Garden, need ambulance fast",maternity,minor,Garden,maternity,serious
+INC-20260601-0039,"Bus ne takkar maari hai Shah Faisal ke paas, jaldi ambulance bhejo",road_accident,moderate,Shah Faisal,road_accident,serious
+INC-20260601-0025,"Koi behosh para hai Kemari ke paas, madad chahiye",other,critical,Kemari,other,serious
+INC-20260601-0181,"Unknown emergency in Gulshan-e-Iqbal, person lying on street",other,minor,Gulshan-e-Iqbal,other,serious
+INC-20260601-0182,"Koi behosh para hai North Nazimabad ke paas, madad chahiye",other,minor,North Nazimabad,other,serious
+INC-20260601-0196,"Buzurg seerhiyon se gir gaye hain Gadap mein, utth nahi rahe",fall,minor,Gadap,fall,serious
+INC-20260601-0128,"Old woman cannot breathe properly in North Nazimabad, lips turning blue",respiratory,moderate,North Nazimabad,respiratory,critical
+INC-20260601-0030,"Tabiyat bohat kharab hai, samajh nahi aa raha kya hua, Gulistan-e-Johar",other,minor,Gulistan-e-Johar,other,serious
+INC-20260601-0020,"Asthma attack ho raha hai, inhaler kaam nahi kar raha, Gulshan-e-Iqbal",respiratory,moderate,Gulshan-e-Iqbal,respiratory,serious
+INC-20260601-0165,"Bus ne takkar maari hai Garden ke paas, jaldi ambulance bhejo",road_accident,critical,Garden,road_accident,serious
+INC-20260601-0199,"Car accident near Baldia, two people injured, one unconscious",road_accident,serious,Baldia,road_accident,serious
+INC-20260601-0207,Dhoop mein behosh aurat mili hai North Nazimabad ke paas,heat_stroke,serious,North Nazimabad,heat_stroke,serious
+INC-20260601-0114,Bachcha chhat se gir gaya hai North Nazimabad mein,fall,serious,North Nazimabad,fall,serious
+INC-20260601-0006,"Car accident near Baldia, two people injured, one unconscious",road_accident,minor,Baldia,road_accident,serious
+INC-20260601-0057,"Pregnant lady in labour in Orangi, need ambulance fast",maternity,critical,Orangi,maternity,serious
+INC-20260601-0183,"Mere walid ko seenay mein dard ho raha hai, saans nahi aa rahi, Gulshan-e-Iqbal",cardiac,serious,Gulshan-e-Iqbal,cardiac,critical
+INC-20260601-0136,"Car accident near Shah Faisal, two people injured, one unconscious",road_accident,critical,Shah Faisal,road_accident,serious
+INC-20260601-0087,"Heart patient collapsed at home in Gulshan-e-Iqbal, not responding",cardiac,critical,Gulshan-e-Iqbal,cardiac,critical
+INC-20260601-0066,"Koi behosh para hai Gulshan-e-Iqbal ke paas, madad chahiye",other,moderate,Gulshan-e-Iqbal,other,serious
+INC-20260601-0208,"Buzurg seerhiyon se gir gaye hain Shah Faisal mein, utth nahi rahe",fall,minor,Shah Faisal,fall,serious
+INC-20260601-0195,"Buzurg seerhiyon se gir gaye hain Liaquatabad mein, utth nahi rahe",fall,critical,Liaquatabad,fall,serious
+INC-20260601-0133,"Koi behosh para hai SITE ke paas, madad chahiye",other,minor,SITE,other,serious
+INC-20260601-0032,"Accident hua hai Lyari mein, bike wala gir gaya hai, khoon beh raha hai",road_accident,minor,Lyari,road_accident,serious
+INC-20260601-0013,"Chest pain emergency SITE mein, buzurg aadmi hai",cardiac,minor,SITE,cardiac,serious
+INC-20260601-0036,"Car accident near North Karachi, two people injured, one unconscious",road_accident,moderate,North Karachi,road_accident,serious
+INC-20260601-0029,"Chest pain emergency Landhi mein, buzurg aadmi hai",cardiac,critical,Landhi,cardiac,serious
+INC-20260601-0043,"Accident hua hai Orangi mein, bike wala gir gaya hai, khoon beh raha hai",road_accident,critical,Orangi,road_accident,serious
+INC-20260601-0218,"Accident hua hai Korangi mein, bike wala gir gaya hai, khoon beh raha hai",road_accident,critical,Korangi,road_accident,serious
+INC-20260601-0109,"Meri biwi ko dard shuru ho gaye hain, hospital le jana hai, Orangi",maternity,moderate,Orangi,maternity,serious
+INC-20260601-0205,"Heart patient collapsed at home in Surjani, not responding",cardiac,moderate,Surjani,cardiac,critical
+INC-20260601-0052,Bachcha chhat se gir gaya hai Orangi mein,fall,moderate,Orangi,fall,serious
+INC-20260601-0166,"Old woman cannot breathe properly in SITE, lips turning blue",respiratory,serious,SITE,respiratory,critical
+INC-20260601-0179,"Accident hua hai Malir mein, bike wala gir gaya hai, khoon beh raha hai",road_accident,moderate,Malir,road_accident,serious
+INC-20260601-0077,"Koi behosh para hai Saddar ke paas, madad chahiye",other,minor,Saddar,other,serious
+INC-20260601-0042,"Tabiyat bohat kharab hai, samajh nahi aa raha kya hua, Gulshan-e-Iqbal",other,moderate,Gulshan-e-Iqbal,other,serious
+INC-20260601-0137,"Garmi se banda behosh ho gaya hai Gulistan-e-Johar mein, bahar kaam kar raha tha",heat_stroke,serious,Gulistan-e-Johar,heat_stroke,serious
+INC-20260601-0079,"Mere walid ko seenay mein dard ho raha hai, saans nahi aa rahi, Nazimabad",cardiac,critical,Nazimabad,cardiac,critical
+INC-20260601-0157,"Fight injury in Gulshan-e-Iqbal, person bleeding from head",violence,moderate,Gulshan-e-Iqbal,violence,serious
+INC-20260601-0027,"Tabiyat bohat kharab hai, samajh nahi aa raha kya hua, Orangi",other,moderate,Orangi,other,serious
+INC-20260601-0148,"Delivery case hai Gulshan-e-Iqbal mein, paani toot gaya hai",maternity,moderate,Gulshan-e-Iqbal,maternity,serious
+INC-20260601-0168,"Accident hua hai Landhi mein, bike wala gir gaya hai, khoon beh raha hai",road_accident,serious,Landhi,road_accident,serious
+INC-20260601-0121,"Mere walid ko seenay mein dard ho raha hai, saans nahi aa rahi, Liaquatabad",cardiac,serious,Liaquatabad,cardiac,critical
+INC-20260601-0001,"Larai mein chaqu lag gaya hai kisi ko, Orangi",violence,minor,Orangi,violence,serious
+INC-20260601-0003,"Accident hua hai North Nazimabad mein, bike wala gir gaya hai, khoon beh raha hai",road_accident,serious,North Nazimabad,road_accident,serious
+INC-20260601-0078,"Buzurg seerhiyon se gir gaye hain North Karachi mein, utth nahi rahe",fall,moderate,North Karachi,fall,serious
+INC-20260601-0047,"Accident hua hai Malir mein, bike wala gir gaya hai, khoon beh raha hai",road_accident,moderate,Malir,road_accident,serious
+INC-20260601-0105,"Car accident near Liaquatabad, two people injured, one unconscious",road_accident,minor,Liaquatabad,road_accident,serious
+INC-20260601-0178,Dhoop mein behosh aurat mili hai Korangi ke paas,heat_stroke,critical,Korangi,heat_stroke,serious

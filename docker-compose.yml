@@ -1,0 +1,156 @@
+services:
+  redpanda:
+    image: redpandadata/redpanda:latest
+    container_name: resqstats-redpanda
+    command:
+      - redpanda start
+      - --smp 1
+      - --memory 1G
+      - --overprovisioned
+      - --kafka-addr internal://0.0.0.0:29092,external://0.0.0.0:9092
+      - --advertise-kafka-addr internal://redpanda:29092,external://localhost:9092
+    ports:
+      - "9092:9092"
+    healthcheck:
+      test: ["CMD-SHELL", "rpk cluster health | grep -q 'Healthy:.*true'"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  redpanda-console:
+    image: redpandadata/console:latest
+    container_name: resqstats-console
+    environment:
+      KAFKA_BROKERS: redpanda:29092
+    ports:
+      - "8080:8080"
+    depends_on:
+      redpanda:
+        condition: service_healthy
+
+  minio:
+    image: minio/minio:latest
+    container_name: resqstats-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-resqadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-resqstats123}
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio-data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # one-shot: create the lake buckets, then exit
+  minio-init:
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set lake http://minio:9000 ${MINIO_ROOT_USER:-resqadmin} ${MINIO_ROOT_PASSWORD:-resqstats123} &&
+      mc mb -p lake/bronze lake/silver &&
+      echo 'buckets ready'
+      "
+
+  # Phase 3: Spark bronze sink (start with: docker compose --profile streaming up spark-bronze)
+  spark-bronze:
+    # NOTE: bitnami images moved to the frozen 'bitnamilegacy' archive (Aug 2025,
+    # Broadcom licensing change). Fine for this project; swap to apache/spark if needed.
+    image: bitnamilegacy/spark:3.5
+    container_name: resqstats-spark-bronze
+    profiles: ["streaming"]
+    working_dir: /app
+    environment:
+      PYTHONPATH: /app
+      KAFKA_BOOTSTRAP: redpanda:29092
+      MINIO_ENDPOINT: http://minio:9000
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-resqadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-resqstats123}
+    volumes:
+      - ./streaming:/app/streaming:ro
+      # bind mount for the package cache: writable by the container user on
+      # Docker Desktop, and persists between runs so packages download once
+      - ./.ivy-cache:/ivy-cache
+    command: >
+      spark-submit
+      --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1,org.apache.hadoop:hadoop-aws:3.3.4
+      --conf spark.jars.ivy=/ivy-cache
+      /app/streaming/bronze_sink.py
+    depends_on:
+      redpanda:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+
+  # Phase 4: silver builder - batch job, runs and exits
+  # (start with: docker compose --profile batch up spark-silver)
+  spark-silver:
+    image: bitnamilegacy/spark:3.5
+    container_name: resqstats-spark-silver
+    profiles: ["batch"]
+    working_dir: /app
+    environment:
+      PYTHONPATH: /app
+      MINIO_ENDPOINT: http://minio:9000
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-resqadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-resqstats123}
+    volumes:
+      - ./streaming:/app/streaming:ro
+      - ./enrichment:/app/enrichment:ro
+      - ./.ivy-cache:/ivy-cache
+    command: >
+      spark-submit
+      --packages org.apache.hadoop:hadoop-aws:3.3.4
+      --conf spark.jars.ivy=/ivy-cache
+      /app/enrichment/silver_builder.py
+    depends_on:
+      minio:
+        condition: service_healthy
+
+  # Phase 6: Airflow orchestrator (UI at http://localhost:8081, admin/admin)
+  # start with: docker compose --profile orchestration up airflow
+  airflow:
+    image: apache/airflow:2.9.3
+    container_name: resqstats-airflow
+    profiles: ["orchestration"]
+    ports:
+      - "8081:8080"
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_FOLDER: /opt/airflow/dags
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: "sqlite:////opt/airflow/db/airflow.db"
+      # modest hardware: fewer web workers + patient startup timeouts
+      AIRFLOW__WEBSERVER__WORKERS: "2"
+      AIRFLOW__WEBSERVER__WEB_SERVER_MASTER_TIMEOUT: "600"
+      AIRFLOW__WEBSERVER__WEB_SERVER_WORKER_TIMEOUT: "600"
+      _AIRFLOW_DB_MIGRATE: "true"
+      _AIRFLOW_WWW_USER_CREATE: "true"
+      _AIRFLOW_WWW_USER_USERNAME: admin
+      _AIRFLOW_WWW_USER_PASSWORD: admin
+      # installed on container start (adds ~1-2 min to first boot)
+      _PIP_ADDITIONAL_REQUIREMENTS: "dbt-duckdb duckdb requests"
+      MINIO_S3_HOST: minio:9000
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-resqadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-resqstats123}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID:-}
+    volumes:
+      - ./orchestration/dags:/opt/airflow/dags
+      - ./transform:/opt/airflow/transform
+      - ./data:/opt/airflow/data
+      # bind mount (not a named volume): writable by the airflow user on Docker Desktop
+      - ./.airflow-db:/opt/airflow/db
+    command: standalone
+    depends_on:
+      minio:
+        condition: service_healthy
+
+volumes:
+  minio-data:

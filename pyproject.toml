@@ -1,0 +1,27 @@
+[project]
+name = "resqstats"
+version = "0.1.0"
+description = "Karachi ambulance dispatch analytics platform"
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP"]
+ignore = [
+    "N812",   # `from pyspark.sql import functions as F` is the ecosystem convention
+    "UP045",  # Optional[X] kept for pydantic field readability
+    "UP007",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# embedded HTML/JS template and CLI docstrings legitimately exceed line length
+"dashboard/build_dashboard.py" = ["E501", "W292"]
+"streaming/bronze_sink.py" = ["E501"]
+"enrichment/llm_classify.py" = ["E501"]
+"producers/simulator.py" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

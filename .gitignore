@@ -1,0 +1,16 @@
+.venv/
+.ivy-cache/
+.airflow-db/
+AGENTS.md
+__pycache__/
+*.pyc
+.env
+# keep the warehouse file (needed for Streamlit Cloud deploys), ignore the rest
+data/*
+!data/resqstats.duckdb
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dbt_packages/
+target/
+logs/

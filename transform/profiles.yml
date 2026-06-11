@@ -1,0 +1,17 @@
+# dbt connection profile - DuckDB warehouse (a local file, zero setup).
+# Reads silver Parquet straight from MinIO via DuckDB's S3 support.
+# Swapping to Snowflake/MotherDuck later = replacing this one file.
+resqstats:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/resqstats.duckdb
+      extensions:
+        - httpfs
+      settings:
+        s3_endpoint: "{{ env_var('MINIO_S3_HOST', 'localhost:9000') }}"
+        s3_access_key_id: "{{ env_var('MINIO_ROOT_USER', 'resqadmin') }}"
+        s3_secret_access_key: "{{ env_var('MINIO_ROOT_PASSWORD', 'resqstats123') }}"
+        s3_use_ssl: false
+        s3_url_style: path

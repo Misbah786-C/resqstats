@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_incidents
+    description: One row per emergency incident, straight from the silver lake.
+    columns:
+      - name: incident_id
+        tests: [unique, not_null]
+
+  - name: fct_incidents
+    description: Fact table - one row per incident with time dimensions.
+    columns:
+      - name: incident_id
+        tests: [unique, not_null]
+      - name: severity
+        tests:
+          - not_null
+          - accepted_values:
+              values: [critical, serious, moderate, minor]
+      - name: incident_type
+        tests:
+          - not_null
+          - accepted_values:
+              values: [road_accident, cardiac, heat_stroke, violence,
+                       fall, respiratory, maternity, other]
+      - name: minutes_to_scene
+        description: Response time (call -> on scene). Must be positive.
+        tests: [not_null]
+      - name: town
+        tests: [not_null]
+
+  - name: mart_response_by_town
+    description: Median/p90 response time per town per month. Headline table.
+    columns:
+      - name: median_response_min
+        tests: [not_null]
+
+  - name: mart_golden_hour
+    description: Percent of critical patients reaching hospital within 60 min.
+
+  - name: mart_station_hourly
+    description: Dispatch load and response speed by station and hour of day.
+
+  - name: mart_coverage_gaps
+    description: Towns ranked by worst response time - station placement shortlist.
