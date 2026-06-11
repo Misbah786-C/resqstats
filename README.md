@@ -1,4 +1,4 @@
-# ResQStats 🚑
+# ResQStats
 
 **Dispatch analytics platform for Karachi's ambulance networks.**
 
