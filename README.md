@@ -2,6 +2,10 @@
 
 **Dispatch analytics platform for Karachi's ambulance networks.**
 
+**🔴 Live dashboard:** [huggingface.co/spaces/Misbahazhar/resqstats](https://huggingface.co/spaces/Misbahazhar/resqstats)
+
+[![Dashboard](docs/img/dashboard.png)](https://huggingface.co/spaces/Misbahazhar/resqstats)
+
 Edhi and Chhipa run some of the world's largest volunteer ambulance fleets with
 almost no data infrastructure. ResQStats simulates Karachi's emergency dispatch
 operations (real dispatch data is confidential) and runs a production-grade

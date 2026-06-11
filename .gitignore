@@ -2,6 +2,7 @@
 .ivy-cache/
 .airflow-db/
 AGENTS.md
+hf-deploy/
 __pycache__/
 *.pyc
 .env
