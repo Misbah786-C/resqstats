@@ -7,7 +7,7 @@
 Edhi and Chhipa run some of the world's largest volunteer ambulance fleets with
 almost no data infrastructure. ResQStats simulates Karachi's emergency dispatch
 operations (real dispatch data is confidential) and runs a production-grade
-data platform on top — streaming ingestion, a medallion lakehouse, LLM call
+data platform on top, streaming ingestion, a medallion lakehouse, LLM call
 classification, a tested warehouse, daily orchestration, and an interactive
 dashboard. Built entirely with free tools.
 
@@ -33,7 +33,7 @@ Gold = tested dbt marts.
 
 ![Coverage gaps](docs/img/coverage_gaps.png)
 
-**Baldia is Karachi's worst-served town** — 25.5 min median response, 100% of
+**Baldia is Karachi's worst-served town**  25.5 min median response, 100% of
 incidents waiting over 15 minutes. The daily pipeline detects and alerts on
 this automatically:
 
@@ -52,7 +52,7 @@ call transcripts. Simulator ground truth makes accuracy measurable:
 | Task | Accuracy | Why |
 |---|---|---|
 | incident_type | **100%** | Call texts carry a clear type signal |
-| severity | **32%** | No severity signal exists in the text — the eval detected an unlearnable task |
+| severity | **32%** | No severity signal exists in the text, the eval detected an unlearnable task |
 
 The LLM only structures text; all metrics are computed in SQL/Python.
 
@@ -80,10 +80,6 @@ docker compose --profile orchestration up airflow
 streamlit run dashboard/app.py
 ```
 
-Consoles: Kafka `:8080` · MinIO `:9001` · Airflow `:8081` (admin/admin) ·
-Dashboard `:8501`. Groq key (free, console.groq.com) goes in `.env` — see
-`.env.example`.
-
 ## Structure
 
 | Folder | Contents |
@@ -91,19 +87,10 @@ Dashboard `:8501`. Groq key (free, console.groq.com) goes in `.env` — see
 | `producers/` | Event simulator, pydantic schemas, Karachi reference data |
 | `streaming/` | Spark streaming bronze sink |
 | `enrichment/` | Silver builder, LLM classifier, accuracy eval |
-| `transform/` | dbt project — 6 models, 17 tests |
+| `transform/` | dbt project, 6 models, 17 tests |
 | `orchestration/` | Airflow DAG, alerting |
 | `dashboard/` | Streamlit app, static HTML generator |
 | `tests/` | 13 unit tests |
-
-## Design decisions
-
-- **Simulator over scraping** — confidential domain; gives unlimited labeled
-  data and makes the LLM evaluable ([ADR-0001](docs/decisions/0001-simulator-over-scraping.md)).
-- **Kafka/Spark at this volume is deliberate** — bursty emergencies fit
-  streaming; replayable topics + immutable bronze allow full reprocessing.
-- **DuckDB over Snowflake** — no trial expiry; dbt makes the swap a one-file
-  profile change.
 
 ## License
 
